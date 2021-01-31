@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 const Avatar: FC = ({ children }) => {
   return (
-    <div className="rounded-full h-24 w-24 flex items-center justify-center m-4 border-dashed border bg-blue-400">
+    <div className="flex-center rounded-full h-24 w-24 m-4 bg-blue-400  border border-dashed border-blue-800">
       {children}
     </div>
   );

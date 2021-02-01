@@ -1,12 +1,12 @@
-import Head from 'next/head';
+import Layout from 'components/Layout';
+import { FC } from 'react';
 
-export default function Home() {
+const Home: FC = () => {
   return (
-    <div className="bg-red-900 h-screen">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="h-screen">
+      <Layout>Layout</Layout>
     </div>
   );
-}
+};
+
+export default Home;

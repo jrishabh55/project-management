@@ -1,16 +1,23 @@
 import Avatar from 'components/Avatar';
 import NavItem from 'components/Nav/NavItem';
+import Link from 'next/link';
 import { FC } from 'react';
 
 const Nav: FC = () => {
   return (
     <>
-      <nav className="md:h-screen bg-gray-700 p-2">
+      <nav className="h-screen p-2 border-r-4">
         <Avatar>Rishabh</Avatar>
         <ul className="flex flex-col">
-          <NavItem>Home</NavItem>
-          <NavItem>Tasks</NavItem>
-          <NavItem>Reports</NavItem>
+          <NavItem>
+            <Link href="/">Home</Link>
+          </NavItem>
+          <NavItem>
+            <Link href="/tasks">Tasks</Link>
+          </NavItem>
+          <NavItem>
+            <Link href="/reports">Reports</Link>
+          </NavItem>
         </ul>
       </nav>
     </>

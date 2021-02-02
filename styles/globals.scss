@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   p,
   h1,
@@ -35,3 +31,36 @@
   @apply shadow;
   @apply border;
 }
+
+.btn {
+  @apply p-2;
+  @apply rounded-lg;
+  @apply shadow-2xl;
+  @apply text-center;
+  @apply border-4;
+}
+
+.btn + .btn--primary {
+  @apply bg-blue-500;
+  & + .darker {
+    @apply bg-blue-700;
+  }
+}
+
+.btn + .btn--danger {
+  @apply bg-red-500;
+  & + .darker {
+    @apply bg-red-700;
+  }
+}
+
+.btn + .btn--success {
+  @apply bg-green-500;
+  & + .darker {
+    @apply bg-green-700;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

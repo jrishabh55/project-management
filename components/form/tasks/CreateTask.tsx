@@ -1,9 +1,11 @@
+import Button from 'components/Button';
 import Field from 'components/form/components/Field';
 import { Form, Formik } from 'formik';
 import { FC } from 'react';
 
 const CreateTask: FC = () => (
-  <div className="w-full">
+  <div className="w-full flex-center flex-col">
+    <h1 className="text-3xl bold text-justify border-b">Create a new task</h1>
     <Formik
       initialValues={{ email: '', password: '' }}
       validate={(values) => {
@@ -25,9 +27,14 @@ const CreateTask: FC = () => (
         <Form className="p-4 w-96 flex-center flex-col">
           <Field label="Email" type="email" name="email" placeholder="Email Address" />
           <Field label="Password" placeholder="Password" type="password" name="password" />
-          <button type="submit" disabled={isSubmitting} className="btn btn--danger block mt-4">
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            variant="danger"
+            block
+            className="mt-6 ml-4">
             Submit
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>

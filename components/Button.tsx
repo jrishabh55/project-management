@@ -3,18 +3,20 @@ import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
 
 export interface ButtonProps {
   variant?: 'danger' | 'success' | 'info' | 'primary';
+  block: boolean;
 }
 
 const Button: FC<
   ButtonProps & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-> = ({ className, variant, ...props }) => (
-  <button className={cx('btn mt-4', `btn--${variant}`, className)} {...props}>
+> = ({ className, variant, block, ...props }) => (
+  <button className={cx('btn', `btn--${variant}`, { block }, className)} {...props}>
     Submit
   </button>
 );
 
 Button.defaultProps = {
-  variant: 'primary'
+  variant: 'primary',
+  block: false
 };
 
 export default Button;

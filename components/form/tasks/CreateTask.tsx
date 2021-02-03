@@ -4,9 +4,10 @@ import { Form, Formik, FormikHelpers } from 'formik';
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
 const defaultFormValues = { name: '', password: '' };
+type FormValuesType = typeof defaultFormValues;
 
 const CreateTask: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = () => {
-  const handleValidation = (values: typeof defaultFormValues) => {
+  const handleValidation = (values: FormValuesType) => {
     const errors: Partial<typeof values> = {};
     if (!values.name) {
       errors.name = '* Email is required.';
@@ -17,8 +18,8 @@ const CreateTask: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivEl
   };
 
   const handleSubmit = (
-    values: typeof defaultFormValues,
-    { setSubmitting }: FormikHelpers<typeof defaultFormValues>
+    values: FormValuesType,
+    { setSubmitting }: FormikHelpers<FormValuesType>
   ) => {
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));

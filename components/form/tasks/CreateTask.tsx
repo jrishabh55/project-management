@@ -10,10 +10,9 @@ const CreateTask: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivEl
   const handleValidation = (values: FormValuesType) => {
     const errors: Partial<typeof values> = {};
     if (!values.name) {
-      errors.name = '* Email is required.';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.name)) {
-      errors.name = 'Invalid email address';
+      errors.name = '* Name is required.';
     }
+
     return errors;
   };
 
@@ -29,12 +28,17 @@ const CreateTask: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivEl
 
   return (
     <div className="flex items-center flex-col -mt-40 border-4 p-10">
-      <h1 className="text-3xl bold text-justify border-b mb-2">Create a new task</h1>
+      <h1 className="text-3xl bold text-justify border-b-4 pb-1 mb-2">Create a new task</h1>
       <Formik initialValues={defaultFormValues} validate={handleValidation} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
           <Form className="p-4 w-96 flex-center flex-col">
             <Field label="Name" type="text" name="name" placeholder="Task name" />
-            <Field label="Password" placeholder="Password" type="password" name="password" />
+            <Field
+              label="Description"
+              placeholder="Task Description"
+              component="textarea"
+              name="description"
+            />
             <Button
               type="submit"
               disabled={isSubmitting}

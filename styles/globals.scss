@@ -68,6 +68,15 @@
       @apply border-green-800;
     }
   }
+
+  &.btn--info {
+    @apply bg-teal-500;
+    @apply border-teal-600;
+    &.darker {
+      @apply bg-teal-700;
+      @apply border-teal-800;
+    }
+  }
 }
 
 .error-message {

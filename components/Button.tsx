@@ -8,9 +8,9 @@ export interface ButtonProps {
 
 const Button: FC<
   ButtonProps & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-> = ({ className, variant, block, ...props }) => (
+> = ({ className, variant, block, children, ...props }) => (
   <button className={cx('btn', `btn--${variant}`, { block }, className)} {...props}>
-    Submit
+    {children}
   </button>
 );
 

@@ -3,14 +3,24 @@ import Field from 'components/form/components/Field';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
-const defaultFormValues = { name: '', password: '' };
+const defaultFormValues = { name: '', status: '' };
 type FormValuesType = typeof defaultFormValues;
 
-const CreateTask: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = () => {
+export interface CreateTaskProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  defaultValues?: typeof defaultFormValues;
+}
+
+const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) => {
   const handleValidation = (values: FormValuesType) => {
+    const { name, status } = values;
     const errors: Partial<typeof values> = {};
-    if (!values.name) {
+    if (!name) {
       errors.name = '* Name is required.';
+    }
+
+    if (!status) {
+      errors.status = '* Status is required.';
     }
 
     return errors;
@@ -29,9 +39,9 @@ const CreateTask: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivEl
   return (
     <div className="flex items-center flex-col -mt-40 border-4 p-10">
       <h1 className="text-3xl bold text-justify border-b-4 pb-1 mb-2">Create a new task</h1>
-      <Formik initialValues={defaultFormValues} validate={handleValidation} onSubmit={handleSubmit}>
+      <Formik initialValues={defaultValues} validate={handleValidation} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
-          <Form className="p-4 w-96 flex-center flex-col">
+          <Form id="create-task" className="p-4 w-96 flex-center flex-col">
             <Field label="Name" type="text" name="name" placeholder="Task name" />
             <Field
               label="Description"
@@ -39,12 +49,20 @@ const CreateTask: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivEl
               component="textarea"
               name="description"
             />
+            <Field label="Status" name="status" placeholder="Status" component="select">
+              <option value="new" selected>
+                New
+              </option>
+              <option value="pending">Pending</option>
+              <option value="done">Done</option>
+            </Field>
             <Button
               type="submit"
               disabled={isSubmitting}
               variant="danger"
               block
-              className="mt-6 ml-4">
+              className="mt-6 ml-4"
+              form="create-task">
               Submit
             </Button>
           </Form>

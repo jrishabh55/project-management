@@ -28,7 +28,8 @@
     "react-dom": "^16.13.1",
     "react-icon": "^1.0.0",
     "sass": "^1.32.5",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.0.3",
+    "tailwindcss-neumorphism": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",

@@ -11,13 +11,26 @@
   div,
   ul,
   li,
-  nav {
+  nav,
+  option {
     @apply text-gray-200;
-    @apply border-gray-600;
   }
 
   body {
-    @apply bg-gray-900;
+    @apply bg-gray-600;
+  }
+
+  input, textarea, select {
+    @apply nm-inset-gray-600;
+    @apply rounded-full;
+    @apply px-4;
+    @apply outline-none;
+  }
+
+  option {
+    @apply placeholder-gray-200;
+    @apply p-2;
+    @apply nm-convex-gray-600-sm;
   }
 }
 
@@ -28,53 +41,43 @@
 }
 
 .card {
-  @apply shadow;
-  @apply border;
+  @apply nm-flat-gray-600;
 }
 
 .btn {
   @apply p-2;
   @apply rounded-lg;
-  @apply shadow-2xl;
   @apply text-center;
-  @apply border-2;
+  @apply rounded-full;
 
   &.block {
     @apply w-full;
   }
 
   &.btn--primary {
-    @apply bg-blue-500;
-    @apply border-blue-600;
+    @apply nm-convex-blue-600-sm;
     &.darker {
-      @apply bg-blue-700;
-      @apply border-blue-800;
+      @apply nm-convex-blue-800-sm;
     }
   }
   &.btn--danger {
-    @apply bg-red-500;
-    @apply border-red-600;
+    @apply nm-convex-red-600-sm;
     &.darker {
-      @apply bg-red-700;
-      @apply border-red-800;
+      @apply nm-convex-red-800-sm;
     }
   }
 
   &.btn--success {
-    @apply bg-green-500;
-    @apply border-green-600;
+    @apply nm-convex-green-600-sm;
     &.darker {
-      @apply bg-green-700;
-      @apply border-green-800;
+      @apply nm-convex-green-800-sm;
     }
   }
 
   &.btn--info {
-    @apply bg-teal-500;
-    @apply border-teal-600;
+    @apply nm-convex-teal-600-sm;
     &.darker {
-      @apply bg-teal-700;
-      @apply border-teal-800;
+      @apply nm-convex-teal-800-sm;
     }
   }
 }

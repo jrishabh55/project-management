@@ -18,7 +18,7 @@ const Field: FC<FieldAttributes<any>> = ({ className, id, name, label, ...props 
       <FieldComponent
         id={id || name}
         name={name}
-        className={cx('w-full ml-2 p-2 text-gray-900', className)}
+        className={cx('w-full ml-2 py-2', className)}
         {...props}
       />
     </div>

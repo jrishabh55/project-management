@@ -7,7 +7,7 @@ interface Task {
   name: string;
   description: string;
   status: string;
-  [key: string]: string;
+  [key: string]: string | boolean;
 }
 
 interface Category {

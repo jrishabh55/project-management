@@ -37,8 +37,8 @@ const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) 
   };
 
   return (
-    <div className="flex items-center flex-col -mt-40 border-4 p-10">
-      <h1 className="text-3xl bold text-justify border-b-4 pb-1 mb-2">Create a new task</h1>
+    <div className="flex items-center flex-col -mt-40 nm-convex-gray-600 p-10">
+      <h1 className="text-3xl bold text-justify pb-1 mb-2">Create a new task</h1>
       <Formik initialValues={defaultValues} validate={handleValidation} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
           <Form id="create-task" className="p-4 w-96 flex-center flex-col">

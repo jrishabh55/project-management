@@ -6,7 +6,7 @@ import { FC } from 'react';
 const Nav: FC = () => {
   return (
     <>
-      <nav className="h-screen p-2 border-r-4">
+      <nav className="h-screen p-2 border-r-2">
         <Avatar>Rishabh</Avatar>
         <ul className="flex flex-col">
           <NavItem>

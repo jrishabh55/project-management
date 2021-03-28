@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
 @layer base {
   p,
   h1,
@@ -20,9 +26,11 @@
     @apply bg-gray-600;
   }
 
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     @apply nm-inset-gray-600;
-    @apply rounded-full;
+    @apply rounded-3xl;
     @apply px-4;
     @apply outline-none;
   }
@@ -49,35 +57,41 @@
   @apply rounded-lg;
   @apply text-center;
   @apply rounded-full;
+  @apply outline-none;
+  @apply focus:outline-none;
+  @apply nm-convex-gray-600-xs;
+  @apply focus:nm-concave-gray-600-xs;
+  @apply font-medium;
+  @apply text-lg;
 
   &.block {
     @apply w-full;
   }
 
   &.btn--primary {
-    @apply nm-convex-blue-600-sm;
+    @apply text-blue-600;
     &.darker {
-      @apply nm-convex-blue-800-sm;
+      @apply text-blue-800;
     }
   }
   &.btn--danger {
-    @apply nm-convex-red-600-sm;
+    @apply text-red-600;
     &.darker {
-      @apply nm-convex-red-800-sm;
+      @apply text-red-800;
     }
   }
 
   &.btn--success {
-    @apply nm-convex-green-600-sm;
+    @apply text-green-600;
     &.darker {
-      @apply nm-convex-green-800-sm;
+      @apply text-green-800;
     }
   }
 
   &.btn--info {
-    @apply nm-convex-teal-600-sm;
+    @apply text-teal-600;
     &.darker {
-      @apply nm-convex-teal-800-sm;
+      @apply text-teal-800;
     }
   }
 }

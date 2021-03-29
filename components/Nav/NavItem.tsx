@@ -1,7 +1,12 @@
+import Link, { LinkProps } from 'next/link';
 import { FC } from 'react';
 
-const NavItem: FC = ({ children }) => {
-  return <li className="btn mb-2 nm-convex-gray-600-sm">{children}</li>;
+const NavItem: FC<LinkProps> = ({ children, ...props }) => {
+  return (
+    <li className="mb-4 btn block">
+      <Link {...props}>{children}</Link>
+    </li>
+  );
 };
 
 export default NavItem;

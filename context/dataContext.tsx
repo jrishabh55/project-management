@@ -1,6 +1,6 @@
 import { createContext, Dispatch, FC } from 'react';
 
-import { Action } from './reducers/stateReducer';
+import { Action } from './reducers/dataReducer';
 
 interface Task {
   id: string;
@@ -34,10 +34,10 @@ export const defaultState: DataState = {
 
 export type State = typeof defaultState;
 
-const stateContext = createContext([defaultState, (action: Action) => (action as unknown) as void]);
+const dataContext = createContext([defaultState, (action: Action) => (action as unknown) as void]);
 
-const StateContext: FC<{ value: [State, Dispatch<Action>] }> = ({ children, value }) => (
-  <stateContext.Provider value={value}>{children}</stateContext.Provider>
+const DataContext: FC<{ value: [State, Dispatch<Action>] }> = ({ children, value }) => (
+  <dataContext.Provider value={value}>{children}</dataContext.Provider>
 );
 
-export default StateContext;
+export default DataContext;

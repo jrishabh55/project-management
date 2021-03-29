@@ -1,4 +1,5 @@
 import Button from 'components/Button';
+import { Card, CardTitle } from 'components/Card';
 import Field from 'components/form/components/Field';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
@@ -37,8 +38,8 @@ const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) 
   };
 
   return (
-    <div className="flex items-center flex-col -mt-40 nm-convex-gray-600 p-10">
-      <h1 className="text-3xl bold text-justify pb-1 mb-2">Create a new task</h1>
+    <Card className="flex items-center flex-col">
+      <CardTitle className="text-3xl bold text-justify pb-1 mb-2">Create a new task</CardTitle>
       <Formik initialValues={defaultValues} validate={handleValidation} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
           <Form id="create-task" className="p-4 w-96 flex-center flex-col">
@@ -49,10 +50,8 @@ const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) 
               component="textarea"
               name="description"
             />
-            <Field label="Status" name="status" placeholder="Status" component="select">
-              <option value="new" selected>
-                New
-              </option>
+            <Field label="Status" value="new" name="status" placeholder="Status" component="select">
+              <option value="new">New</option>
               <option value="pending">Pending</option>
               <option value="done">Done</option>
             </Field>
@@ -68,7 +67,7 @@ const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) 
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };
 

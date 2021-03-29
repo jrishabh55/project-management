@@ -60,12 +60,18 @@
   @apply outline-none;
   @apply focus:outline-none;
   @apply nm-convex-gray-600-xs;
-  @apply focus:nm-concave-gray-600-xs;
+  @apply active:nm-concave-gray-600-xs;
   @apply font-medium;
   @apply text-lg;
 
   &.block {
     @apply w-full;
+  }
+  &.btn--default {
+    @apply text-gray-100;
+    &.darker {
+      @apply text-gray-200;
+    }
   }
 
   &.btn--primary {
@@ -74,6 +80,7 @@
       @apply text-blue-800;
     }
   }
+
   &.btn--danger {
     @apply text-red-600;
     &.darker {

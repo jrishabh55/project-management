@@ -2,8 +2,8 @@ import cx from 'classnames';
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
 
 export interface ButtonProps {
-  variant?: 'danger' | 'success' | 'info' | 'primary';
-  block: boolean;
+  variant?: 'default' | 'danger' | 'success' | 'info' | 'primary';
+  block?: boolean;
 }
 
 const Button: FC<
@@ -15,7 +15,7 @@ const Button: FC<
 );
 
 Button.defaultProps = {
-  variant: 'primary',
+  variant: 'default',
   block: false
 };
 

@@ -10,13 +10,13 @@ export interface FirebaseContextState {
   app: firebase.app.App;
   db: firebase.firestore.Firestore;
   auth: firebase.auth.Auth;
-  initialized: boolean;
+  isInitialized: boolean;
   firebase: typeof firebase;
   user?: firebase.User;
 }
 
 const defaultState: Partial<FirebaseContextState> = {
-  initialized: false
+  isInitialized: false
 };
 
 export const firebaseContext = createContext(defaultState) as Context<FirebaseContextState>;
@@ -29,7 +29,7 @@ export const FirebaseContext: FC = ({ children }) => {
   const appMenu = useMemo(
     () => ({
       user,
-      initialized: !!state,
+      isInitialized: !!state,
       app: state,
       db: state?.firestore(),
       auth: state?.auth(),

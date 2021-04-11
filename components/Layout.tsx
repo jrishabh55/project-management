@@ -1,11 +1,14 @@
 // import Header from 'components/Header';
 import Meta from 'components/Meta';
 import Nav from 'components/Nav';
-import { FC } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
-const Layout: FC = ({ children }) => {
+const Layout: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({
+  children,
+  className
+}) => {
   return (
-    <>
+    <div className={`h-screen ${className}`}>
       <Meta />
       <main className="flex flex-row">
         <Nav />
@@ -14,7 +17,7 @@ const Layout: FC = ({ children }) => {
           {children}
         </section>
       </main>
-    </>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import { createContext, Dispatch, FC } from 'react';
 
 import { Action } from './reducers/dataReducer';
 
-interface Task {
+export interface Task {
   id: string;
   name: string;
   description: string;
@@ -27,16 +27,27 @@ interface DataState {
 }
 
 export const defaultState: DataState = {
-  tasks: [],
+  tasks: [
+    {
+      id: '1',
+      name: 'Task 1',
+      description: 'Description',
+      status: 'new'
+    }
+  ],
   categories: [],
   subcategories: []
 };
 
 export type State = typeof defaultState;
+export type ContextState = [State, Dispatch<Action>];
 
-const dataContext = createContext([defaultState, (action: Action) => (action as unknown) as void]);
+export const dataContext = createContext<ContextState>([
+  defaultState,
+  (action: Action) => (action as unknown) as void
+]);
 
-const DataContext: FC<{ value: [State, Dispatch<Action>] }> = ({ children, value }) => (
+const DataContext: FC<{ value: ContextState }> = ({ children, value }) => (
   <dataContext.Provider value={value}>{children}</dataContext.Provider>
 );
 

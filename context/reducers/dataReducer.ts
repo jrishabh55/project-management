@@ -1,6 +1,6 @@
 import { defaultState, State } from 'context/dataContext';
 
-enum types {
+export enum types {
   ADD_TASK,
   UPDATE_TASK,
   DELETE_TASK

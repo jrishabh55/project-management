@@ -1,10 +1,12 @@
 import Button from 'components/Button';
 import { Card, CardTitle } from 'components/Card';
 import Field from 'components/form/components/Field';
+import { useStore } from 'context';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
+import { useLogger } from 'utils/useLogger';
 
-const defaultFormValues = { name: '', status: '' };
+const defaultFormValues = { name: '', description: '', status: 'new' };
 type FormValuesType = typeof defaultFormValues;
 
 export interface CreateTaskProps
@@ -13,6 +15,11 @@ export interface CreateTaskProps
 }
 
 const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) => {
+  const { store, types } = useStore();
+  const [state, dispatch] = store;
+
+  useLogger(state);
+
   const handleValidation = (values: FormValuesType) => {
     const { name, status } = values;
     const errors: Partial<typeof values> = {};
@@ -32,9 +39,12 @@ const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) 
     { setSubmitting }: FormikHelpers<FormValuesType>
   ) => {
     setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      if (values.name.length > 5 && values.description.length > 10 && values.status) {
+        dispatch({ type: types.ADD_TASK, payload: values });
+      }
       setSubmitting(false);
-    }, 400);
+    }, 2000);
   };
 
   return (
@@ -50,7 +60,7 @@ const CreateTask: FC<CreateTaskProps> = ({ defaultValues = defaultFormValues }) 
               component="textarea"
               name="description"
             />
-            <Field label="Status" value="new" name="status" placeholder="Status" component="select">
+            <Field label="Status" name="status" placeholder="Status" component="select">
               <option value="new">New</option>
               <option value="pending">Pending</option>
               <option value="done">Done</option>
